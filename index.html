@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RH Real Estate - Premium Properties & Luxury Homes</title>
+    <meta name="description"
+        content="Discover premium real estate properties. Find your dream home with RH Real Estate - luxury homes, apartments, and commercial properties.">
+    <meta name="keywords" content="real estate, luxury homes, properties, apartments, commercial real estate">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="RH Real Estate - Premium Properties & Luxury Homes">
+    <meta property="og:description"
+        content="Modern real estate landing page with premium property listings, interactive gallery, and expert agents. Discover luxury homes and exceptional real estate services.">
+    <meta property="og:image" content="https://YOUR_USERNAME.github.io/rh-real-estate-landing/images/hero-bg.jpg">
+    <meta property="og:url" content="https://YOUR_USERNAME.github.io/rh-real-estate-landing/">
+    <meta property="og:site_name" content="RH Real Estate">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RH Real Estate - Premium Properties & Luxury Homes">
+    <meta name="twitter:description"
+        content="Modern real estate landing page with premium property listings and expert agents.">
+    <meta name="twitter:image" content="https://YOUR_USERNAME.github.io/rh-real-estate-landing/images/hero-bg.jpg">
+
+    <!-- Local Fonts -->
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+
+    <!-- Local Font Awesome -->
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+    <!-- Local Tailwind CSS -->
+    <script src="assets/css/tailwind.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: "#C5A059",
+                            dark: "#121212",
+                            gray: "#2A2A2A",
+                            light: "#F5F5F0",
+                            accent: "#1a1a1a",
+                        },
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', "serif"],
+                        sans: ['"Montserrat"', "sans-serif"],
+                    },
+                    screens: {
+                        'xs': '475px',
+                        '3xl': '1600px',
+                    },
+                },
+            },
+        };
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Enhanced Loader -->
+    <div class="loader" aria-hidden="true">
+        <div class="loader-content">
+            <div class="loader-text" data-brand-text>RH</div>
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
+    <!-- Enhanced Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-500 px-4 sm:px-6 py-4" id="navbar" aria-label="Primary">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#home" class="text-xl sm:text-2xl font-serif font-bold tracking-wider text-white group">
+                <span data-brand-short class="relative">RH</span>
+                <span class="text-brand-gold">.</span>
+                <span class="text-xs sm:text-sm font-sans font-normal text-gray-300 ml-2">Real Estate</span>
+                <div
+                    class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gold group-hover:w-full transition-all duration-300">
+                </div>
+            </a>
+
+            <div class="hidden lg:flex space-x-6 xl:space-x-8 text-xs sm:text-sm font-sans tracking-widest uppercase">
+                <a href="#home" class="nav-link hover:text-brand-gold transition-colors relative">Home</a>
+                <a href="#properties" class="nav-link hover:text-brand-gold transition-colors relative">Properties</a>
+                <a href="#portfolio" class="nav-link hover:text-brand-gold transition-colors relative">Gallery</a>
+                <a href="#agents" class="nav-link hover:text-brand-gold transition-colors relative">Agents</a>
+                <a href="#about" class="nav-link hover:text-brand-gold transition-colors relative">About</a>
+                <a href="#contact" class="nav-link hover:text-brand-gold transition-colors relative">Contact</a>
+            </div>
+
+            <button id="menuBtn" class="lg:hidden text-white text-xl hover:text-brand-gold transition-colors"
+                aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Enhanced Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 z-[60] pointer-events-none">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm opacity-0" data-menu-backdrop></div>
+        <div class="absolute top-0 left-0 right-0 bg-brand-dark/95 backdrop-blur-md border-b border-brand-gold/20 opacity-0 -translate-y-6"
+            data-menu-panel>
+            <div class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+                <div class="text-lg sm:text-xl font-serif tracking-wider text-white">
+                    <span data-brand-short>RH</span><span class="text-brand-gold">.</span>
+                </div>
+                <button id="menuCloseBtn" class="text-white text-2xl hover:text-brand-gold transition-colors"
+                    aria-label="Close menu">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 pb-8">
+                <div class="grid gap-4 sm:gap-6 font-sans tracking-widest uppercase text-sm sm:text-base" role="menu">
+                    <a class="hover:text-brand-gold transition-colors py-2 border-b border-white/5" href="#home"
+                        data-menu-link>Home</a>
+                    <a class="hover:text-brand-gold transition-colors py-2 border-b border-white/5" href="#properties"
+                        data-menu-link>Properties</a>
+                    <a class="hover:text-brand-gold transition-colors py-2 border-b border-white/5" href="#portfolio"
+                        data-menu-link>Gallery</a>
+                    <a class="hover:text-brand-gold transition-colors py-2 border-b border-white/5" href="#agents"
+                        data-menu-link>Agents</a>
+                    <a class="hover:text-brand-gold transition-colors py-2 border-b border-white/5" href="#about"
+                        data-menu-link>About</a>
+                    <a class="hover:text-brand-gold transition-colors py-2" href="#contact" data-menu-link>Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Hero Section -->
+    <header id="home" class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 z-10"></div>
+            <div class="absolute inset-0 bg-brand-gold/5 z-10"></div>
+            <img src="images/hero-bg.jpg" alt="Luxury real estate property" class="w-full h-full object-cover hero-img"
+                fetchpriority="high" />
+            <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40 z-10"></div>
+        </div>
+
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 z-10 overflow-hidden">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+        </div>
+
+        <div class="relative z-20 text-center px-4 sm:px-6 max-w-4xl mx-auto">
+            <p
+                class="hero-subtitle reveal-on-load text-brand-gold font-sans text-xs sm:text-sm tracking-[0.25em] uppercase mb-3 sm:mb-4">
+                <span data-brand-tagline>FIND YOUR DREAM HOME TODAY</span>
+            </p>
+
+            <h1
+                class="hero-title reveal-on-load text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-light text-white mb-3 sm:mb-4 leading-tight">
+                Premium<br />
+                <span class="italic text-brand-gold relative inline-block">
+                    <span class="relative z-10">Real Estate</span>
+                    <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-brand-gold/30 transform -skew-x-12"></span>
+                </span><br />
+                <span class="text-2xl sm:text-3xl md:text-4xl">Solutions</span>
+            </h1>
+
+            <p
+                class="hero-text reveal-on-load text-gray-200 font-sans font-light max-w-lg mx-auto mb-5 sm:mb-6 text-sm sm:text-base leading-relaxed">
+                Discover luxury properties and exceptional homes. We connect you with premium real estate opportunities
+                that match your lifestyle and investment goals.
+            </p>
+
+            <div class="hero-btn reveal-on-load flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <button
+                    class="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-brand-gold px-6 sm:px-8 py-3 sm:py-4 transition-all hover:scale-105 hover:shadow-xl hover:shadow-brand-gold/30 text-xs sm:text-sm">
+                    <span
+                        class="absolute inset-0 bg-gradient-to-r from-brand-gold to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span class="relative text-black font-sans uppercase tracking-wider font-semibold">
+                        Browse Properties
+                    </span>
+                </button>
+
+                <button
+                    class="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-brand-gold text-white hover:bg-brand-gold hover:text-black transition-all duration-300 font-sans text-xs sm:text-sm tracking-wider uppercase rounded-lg overflow-hidden">
+                    <span
+                        class="absolute inset-0 bg-brand-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                    <span class="relative z-10">Contact Agent</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Enhanced Scroll Indicator -->
+        <div
+            class="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center opacity-60 hover:opacity-100 transition-opacity z-20">
+            <span
+                class="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-2 sm:mb-3 text-gray-300 font-sans">Scroll</span>
+            <div
+                class="w-[2px] h-12 sm:h-16 bg-gradient-to-b from-brand-gold via-brand-gold/50 to-transparent animate-pulse">
+            </div>
+            <div class="w-2 h-2 rounded-full bg-brand-gold mt-2 animate-bounce"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Property Search Section -->
+        <section class="py-8 sm:py-12 bg-brand-dark border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="bg-brand-gray/50 backdrop-blur-sm border border-brand-gold/20 rounded-xl p-6 sm:p-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                        <div>
+                            <label
+                                class="block text-xs uppercase tracking-widest text-gray-400 mb-2 font-sans">Location</label>
+                            <select
+                                class="custom-select w-full bg-brand-dark border border-white/10 rounded-lg px-4 py-3 text-white font-sans text-sm focus:border-brand-gold focus:outline-none appearance-none cursor-pointer">
+                                <option>All Locations</option>
+                                <option>Downtown</option>
+                                <option>Suburbs</option>
+                                <option>Beachfront</option>
+                                <option>Mountain View</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2 font-sans">Property
+                                Type</label>
+                            <select
+                                class="custom-select w-full bg-brand-dark border border-white/10 rounded-lg px-4 py-3 text-white font-sans text-sm focus:border-brand-gold focus:outline-none appearance-none cursor-pointer">
+                                <option>All Types</option>
+                                <option>House</option>
+                                <option>Apartment</option>
+                                <option>Villa</option>
+                                <option>Commercial</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-400 mb-2 font-sans">Price
+                                Range</label>
+                            <select
+                                class="custom-select w-full bg-brand-dark border border-white/10 rounded-lg px-4 py-3 text-white font-sans text-sm focus:border-brand-gold focus:outline-none appearance-none cursor-pointer">
+                                <option>Any Price</option>
+                                <option>$100K - $500K</option>
+                                <option>$500K - $1M</option>
+                                <option>$1M - $2M</option>
+                                <option>$2M+</option>
+                            </select>
+                        </div>
+                        <div class="flex items-end">
+                            <button
+                                class="w-full bg-brand-gold text-black px-6 py-3 rounded-lg font-sans uppercase tracking-widest text-sm font-semibold hover:bg-yellow-600 hover:text-black transition-colors">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Properties Section -->
+        <section id="properties" class="py-16 sm:py-24 md:py-32 bg-brand-dark relative overflow-hidden">
+            <div
+                class="absolute top-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-brand-gold/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
+            </div>
+            <div
+                class="absolute bottom-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-brand-gold/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2">
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+                <div class="text-center mb-12 sm:mb-16 md:mb-20">
+                    <span
+                        class="text-brand-gold font-sans text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 block">Featured
+                        Properties</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif mt-4 sm:mt-6 mb-4 sm:mb-6">
+                        Premium Listings</h2>
+                    <div class="w-16 sm:w-24 h-0.5 sm:h-1 bg-brand-gold mx-auto mb-6 sm:mb-8"></div>
+                    <p
+                        class="text-gray-300 font-sans font-light max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-4">
+                        Explore our curated selection of luxury properties, each carefully selected for quality,
+                        location, and exceptional value.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    <!-- Property Card 1 -->
+                    <div
+                        class="property-card group bg-brand-gray border border-white/5 hover:border-brand-gold/50 transition-all duration-500 relative overflow-hidden rounded-lg">
+                        <div class="relative h-48 sm:h-56 md:h-64 overflow-hidden">
+                            <img src="images/gallery-1.jpg" alt="Luxury modern home"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                loading="lazy" />
+                            <div
+                                class="absolute top-4 left-4 bg-brand-gold text-black px-3 py-1 rounded-full text-xs font-sans font-semibold uppercase tracking-wider">
+                                For Sale</div>
+                            <div
+                                class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white p-2 rounded-full hover:bg-brand-gold hover:text-black transition-colors">
+                                <i class="fa-solid fa-heart text-sm" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 text-brand-gold mb-2">
+                                <i class="fa-solid fa-location-dot text-xs" aria-hidden="true"></i>
+                                <span class="text-xs font-sans uppercase tracking-wider">Downtown District</span>
+                            </div>
+                            <h3
+                                class="font-serif text-xl sm:text-2xl text-white mb-3 group-hover:text-brand-gold transition-colors">
+                                Modern Luxury Villa</h3>
+                            <p class="text-gray-400 font-sans text-sm leading-relaxed mb-4">Spacious 4-bedroom villa
+                                with stunning city views and premium finishes throughout.</p>
+                            <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                                <div>
+                                    <span class="text-2xl sm:text-3xl font-serif text-brand-gold">$1.2M</span>
+                                </div>
+                                <div class="flex gap-4 text-sm text-gray-400 font-sans">
+                                    <span><i class="fa-solid fa-bed mr-1" aria-hidden="true"></i> 4</span>
+                                    <span><i class="fa-solid fa-bath mr-1" aria-hidden="true"></i> 3</span>
+                                    <span><i class="fa-solid fa-ruler-combined mr-1" aria-hidden="true"></i> 3,500
+                                        sqft</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property Card 2 -->
+                    <div
+                        class="property-card group bg-brand-gray border border-white/5 hover:border-brand-gold/50 transition-all duration-500 relative overflow-hidden rounded-lg">
+                        <div class="relative h-48 sm:h-56 md:h-64 overflow-hidden">
+                            <img src="images/gallery-2.jpg" alt="Contemporary apartment"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                loading="lazy" />
+                            <div
+                                class="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-sans font-semibold uppercase tracking-wider">
+                                For Rent</div>
+                            <div
+                                class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white p-2 rounded-full hover:bg-brand-gold hover:text-black transition-colors">
+                                <i class="fa-solid fa-heart text-sm" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 text-brand-gold mb-2">
+                                <i class="fa-solid fa-location-dot text-xs" aria-hidden="true"></i>
+                                <span class="text-xs font-sans uppercase tracking-wider">Beachfront Area</span>
+                            </div>
+                            <h3
+                                class="font-serif text-xl sm:text-2xl text-white mb-3 group-hover:text-brand-gold transition-colors">
+                                Beachfront Penthouse</h3>
+                            <p class="text-gray-400 font-sans text-sm leading-relaxed mb-4">Luxurious 3-bedroom
+                                penthouse with panoramic ocean views and private terrace.</p>
+                            <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                                <div>
+                                    <span class="text-2xl sm:text-3xl font-serif text-brand-gold">$8,500/mo</span>
+                                </div>
+                                <div class="flex gap-4 text-sm text-gray-400 font-sans">
+                                    <span><i class="fa-solid fa-bed mr-1" aria-hidden="true"></i> 3</span>
+                                    <span><i class="fa-solid fa-bath mr-1" aria-hidden="true"></i> 2</span>
+                                    <span><i class="fa-solid fa-ruler-combined mr-1" aria-hidden="true"></i> 2,800
+                                        sqft</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Property Card 3 -->
+                    <div
+                        class="property-card group bg-brand-gray border border-white/5 hover:border-brand-gold/50 transition-all duration-500 relative overflow-hidden rounded-lg">
+                        <div class="relative h-48 sm:h-56 md:h-64 overflow-hidden">
+                            <img src="images/gallery-3.jpg" alt="Elegant family home"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                loading="lazy" />
+                            <div
+                                class="absolute top-4 left-4 bg-brand-gold text-black px-3 py-1 rounded-full text-xs font-sans font-semibold uppercase tracking-wider">
+                                For Sale</div>
+                            <div
+                                class="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white p-2 rounded-full hover:bg-brand-gold hover:text-black transition-colors">
+                                <i class="fa-solid fa-heart text-sm" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 text-brand-gold mb-2">
+                                <i class="fa-solid fa-location-dot text-xs" aria-hidden="true"></i>
+                                <span class="text-xs font-sans uppercase tracking-wider">Mountain View</span>
+                            </div>
+                            <h3
+                                class="font-serif text-xl sm:text-2xl text-white mb-3 group-hover:text-brand-gold transition-colors">
+                                Elegant Family Estate</h3>
+                            <p class="text-gray-400 font-sans text-sm leading-relaxed mb-4">Stunning 5-bedroom estate
+                                with private pool, garden, and mountain vistas.</p>
+                            <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                                <div>
+                                    <span class="text-2xl sm:text-3xl font-serif text-brand-gold">$2.5M</span>
+                                </div>
+                                <div class="flex gap-4 text-sm text-gray-400 font-sans">
+                                    <span><i class="fa-solid fa-bed mr-1" aria-hidden="true"></i> 5</span>
+                                    <span><i class="fa-solid fa-bath mr-1" aria-hidden="true"></i> 4</span>
+                                    <span><i class="fa-solid fa-ruler-combined mr-1" aria-hidden="true"></i> 5,200
+                                        sqft</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12 sm:mt-16">
+                    <button
+                        class="group relative inline-flex items-center justify-center px-10 sm:px-12 py-4 sm:py-5 border-2 border-brand-gold text-white hover:bg-brand-gold hover:text-black transition-all duration-300 font-sans text-sm sm:text-base tracking-widest uppercase rounded-lg overflow-hidden">
+                        <span
+                            class="absolute inset-0 bg-brand-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                        <span class="relative z-10">View All Properties</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agents Section -->
+        <section id="agents" class="py-16 sm:py-24 md:py-32 bg-brand-gray relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12 sm:mb-16 md:mb-20">
+                    <span class="text-brand-gold font-sans text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 block">Our
+                        Team</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif mt-4 sm:mt-6 mb-4 sm:mb-6">
+                        Expert Agents</h2>
+                    <div class="w-16 sm:w-24 h-0.5 sm:h-1 bg-brand-gold mx-auto mb-6 sm:mb-8"></div>
+                    <p
+                        class="text-gray-300 font-sans font-light max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-4">
+                        Meet our experienced real estate professionals dedicated to helping you find the perfect
+                        property.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+                    <!-- Agent Card 1 -->
+                    <div
+                        class="agent-card group bg-brand-dark p-6 sm:p-8 border border-white/5 hover:border-brand-gold/50 transition-all duration-500 relative overflow-hidden rounded-lg">
+                        <div
+                            class="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-brand-gold/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-gold/20 transition-colors">
+                            <i class="fa-solid fa-user text-brand-gold text-4xl sm:text-5xl" aria-hidden="true"></i>
+                        </div>
+                        <h3
+                            class="font-serif text-xl sm:text-2xl text-white mb-2 text-center group-hover:text-brand-gold transition-colors">
+                            Sarah Johnson</h3>
+                        <p class="text-brand-gold font-sans text-sm uppercase tracking-wider text-center mb-4">Senior
+                            Agent</p>
+                        <p class="text-gray-400 font-sans text-sm leading-relaxed text-center mb-6">15+ years of
+                            experience in luxury real estate. Specializes in high-end residential properties.</p>
+                        <div class="flex justify-center gap-4 text-gray-400">
+                            <span class="text-xs font-sans"><i class="fa-solid fa-phone mr-1" aria-hidden="true"></i>
+                                123456</span>
+                        </div>
+                    </div>
+
+                    <!-- Agent Card 2 -->
+                    <div
+                        class="agent-card group bg-brand-dark p-6 sm:p-8 border border-white/5 hover:border-brand-gold/50 transition-all duration-500 relative overflow-hidden rounded-lg">
+                        <div
+                            class="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-brand-gold/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-gold/20 transition-colors">
+                            <i class="fa-solid fa-user text-brand-gold text-4xl sm:text-5xl" aria-hidden="true"></i>
+                        </div>
+                        <h3
+                            class="font-serif text-xl sm:text-2xl text-white mb-2 text-center group-hover:text-brand-gold transition-colors">
+                            Michael Chen</h3>
+                        <p class="text-brand-gold font-sans text-sm uppercase tracking-wider text-center mb-4">
+                            Commercial Specialist</p>
+                        <p class="text-gray-400 font-sans text-sm leading-relaxed text-center mb-6">Expert in commercial
+                            real estate and investment properties. Over 200 successful transactions.</p>
+                        <div class="flex justify-center gap-4 text-gray-400">
+                            <span class="text-xs font-sans"><i class="fa-solid fa-phone mr-1" aria-hidden="true"></i>
+                                123456</span>
+                        </div>
+                    </div>
+
+                    <!-- Agent Card 3 -->
+                    <div
+                        class="agent-card group bg-brand-dark p-6 sm:p-8 border border-white/5 hover:border-brand-gold/50 transition-all duration-500 relative overflow-hidden rounded-lg">
+                        <div
+                            class="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-brand-gold/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-gold/20 transition-colors">
+                            <i class="fa-solid fa-user text-brand-gold text-4xl sm:text-5xl" aria-hidden="true"></i>
+                        </div>
+                        <h3
+                            class="font-serif text-xl sm:text-2xl text-white mb-2 text-center group-hover:text-brand-gold transition-colors">
+                            Emily Rodriguez</h3>
+                        <p class="text-brand-gold font-sans text-sm uppercase tracking-wider text-center mb-4">Luxury
+                            Homes Expert</p>
+                        <p class="text-gray-400 font-sans text-sm leading-relaxed text-center mb-6">Specializes in
+                            waterfront properties and luxury estates. Known for exceptional client service.</p>
+                        <div class="flex justify-center gap-4 text-gray-400">
+                            <span class="text-xs font-sans"><i class="fa-solid fa-phone mr-1" aria-hidden="true"></i>
+                                123456</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery/Portfolio Section -->
+        <section id="portfolio" class="py-16 sm:py-24 md:py-32 bg-brand-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-12 sm:mb-16 md:mb-20">
+                    <span class="text-brand-gold font-sans text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 block">Our
+                        Work</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif mt-4 sm:mt-6 mb-4 sm:mb-6">
+                        Property Gallery</h2>
+                    <div class="w-16 sm:w-24 h-0.5 sm:h-1 bg-brand-gold mx-auto mb-6 sm:mb-8"></div>
+                    <p
+                        class="text-gray-300 font-sans font-light max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-4">
+                        A showcase of our finest properties, each project crafted with precision and passion.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 sm:gap-6 h-auto md:h-[800px] lg:h-[900px]">
+                    <!-- Large Featured Image -->
+                    <div class="md:col-span-2 md:row-span-2 relative group overflow-hidden cursor-pointer rounded-lg">
+                        <img src="images/gallery-1.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Premium luxury estate property" loading="lazy" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6 sm:p-8">
+                            <div
+                                class="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                                <span
+                                    class="text-brand-gold text-xs uppercase tracking-widest font-sans mb-2 block">Luxury
+                                    Estate</span>
+                                <h4 class="font-serif text-xl sm:text-2xl text-white mb-2">Premium Property</h4>
+                                <p class="text-gray-300 text-sm font-sans">Modern design with exceptional architecture
+                                    and stunning views</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Medium Image 1 -->
+                    <div class="md:col-span-1 md:row-span-1 relative group overflow-hidden cursor-pointer rounded-lg">
+                        <img src="images/gallery-2.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Contemporary apartment building" loading="lazy" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4 sm:p-6">
+                            <div>
+                                <span
+                                    class="text-brand-gold text-xs uppercase tracking-widest font-sans mb-1 block">Residential</span>
+                                <h4 class="font-serif text-xl sm:text-2xl text-white">Modern Apartment</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Medium Image 2 -->
+                    <div class="md:col-span-1 md:row-span-1 relative group overflow-hidden cursor-pointer rounded-lg">
+                        <img src="images/gallery-3.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Elegant family home" loading="lazy" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4 sm:p-6">
+                            <div>
+                                <span
+                                    class="text-brand-gold text-xs uppercase tracking-widest font-sans mb-1 block">Family
+                                    Home</span>
+                                <h4 class="font-serif text-xl sm:text-2xl text-white">Elegant Design</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wide Image -->
+                    <div class="md:col-span-2 md:row-span-1 relative group overflow-hidden cursor-pointer rounded-lg">
+                        <img src="images/gallery-4.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            alt="Commercial real estate property" loading="lazy" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6 sm:p-8">
+                            <div>
+                                <span
+                                    class="text-brand-gold text-xs uppercase tracking-widest font-sans mb-2 block">Commercial</span>
+                                <h4 class="font-serif text-xl sm:text-2xl text-white mb-1">Business Complex</h4>
+                                <p class="text-gray-300 text-sm font-sans">Prime location for commercial investment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="relative py-16 sm:py-24 md:py-32 bg-fixed bg-center bg-cover"
+            style="background-image:url('images/quote-bg.jpg');" aria-label="Statistics">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/85 via-black/75 to-black/85"></div>
+            <div class="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-6">
+                <h2
+                    class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif italic text-white mb-8 sm:mb-12 leading-tight">
+                    "Your Dream Home<br class="hidden sm:block" />Awaits You"
+                </h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 mt-12 sm:mt-16">
+                    <div class="text-center group">
+                        <div
+                            class="inline-block p-4 sm:p-6 rounded-full bg-brand-gold/10 mb-4 sm:mb-6 group-hover:bg-brand-gold/20 transition-colors">
+                            <span class="block text-3xl sm:text-4xl md:text-5xl font-serif text-brand-gold"
+                                data-count="500">0</span>
+                        </div>
+                        <span
+                            class="text-xs sm:text-sm uppercase tracking-[0.2em] text-white/80 font-sans block">Properties
+                            Sold</span>
+                    </div>
+                    <div class="text-center group">
+                        <div
+                            class="inline-block p-4 sm:p-6 rounded-full bg-brand-gold/10 mb-4 sm:mb-6 group-hover:bg-brand-gold/20 transition-colors">
+                            <span class="block text-3xl sm:text-4xl md:text-5xl font-serif text-brand-gold"
+                                data-count="250">0</span>
+                        </div>
+                        <span class="text-xs sm:text-sm uppercase tracking-[0.2em] text-white/80 font-sans block">Happy
+                            Clients</span>
+                    </div>
+                    <div class="text-center group">
+                        <div
+                            class="inline-block p-4 sm:p-6 rounded-full bg-brand-gold/10 mb-4 sm:mb-6 group-hover:bg-brand-gold/20 transition-colors">
+                            <span class="block text-3xl sm:text-4xl md:text-5xl font-serif text-brand-gold"
+                                data-count="15">0</span>
+                        </div>
+                        <span class="text-xs sm:text-sm uppercase tracking-[0.2em] text-white/80 font-sans block">Years
+                            Experience</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 sm:py-24 md:py-32 bg-brand-dark relative overflow-hidden">
+            <div
+                class="absolute top-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-brand-gold/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
+            </div>
+            <div
+                class="absolute bottom-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-brand-gold/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2">
+            </div>
+
+            <div
+                class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-20 items-center relative z-10">
+                <div data-reveal="left">
+                    <span
+                        class="text-brand-gold font-sans text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 block">About
+                        Us</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif mb-6 sm:mb-8 leading-tight">
+                        Trusted Real Estate<br />
+                        <span class="text-stroke text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Partners</span>
+                    </h2>
+                    <div
+                        class="w-16 sm:w-24 h-0.5 sm:h-1 bg-gradient-to-r from-brand-gold to-transparent mb-8 sm:mb-10">
+                    </div>
+
+                    <p
+                        class="text-gray-300 font-sans font-light leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base md:text-lg">
+                        With over 15 years of experience in the real estate industry, RH Real Estate has established
+                        itself as a trusted name in luxury property sales and rentals. We combine market expertise with
+                        personalized service to deliver exceptional results.
+                    </p>
+
+                    <div class="space-y-4 sm:space-y-6">
+                        <div class="flex items-start gap-4 group">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-gold/10 flex items-center justify-center group-hover:bg-brand-gold/20 transition-colors">
+                                <i class="fa-solid fa-award text-brand-gold text-lg sm:text-xl" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-lg sm:text-xl text-white mb-1 sm:mb-2">Award Winning</h3>
+                                <p class="text-gray-400 font-sans text-xs sm:text-sm leading-relaxed">Recognized for
+                                    excellence in real estate services and client satisfaction.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 group">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-gold/10 flex items-center justify-center group-hover:bg-brand-gold/20 transition-colors">
+                                <i class="fa-solid fa-shield-halved text-brand-gold text-lg sm:text-xl"
+                                    aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-lg sm:text-xl text-white mb-1 sm:mb-2">Trusted & Reliable
+                                </h3>
+                                <p class="text-gray-400 font-sans text-xs sm:text-sm leading-relaxed">Your trusted
+                                    partner for all your real estate needs with proven track record.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 group">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-gold/10 flex items-center justify-center group-hover:bg-brand-gold/20 transition-colors">
+                                <i class="fa-solid fa-handshake text-brand-gold text-lg sm:text-xl"
+                                    aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-lg sm:text-xl text-white mb-1 sm:mb-2">Personalized Service
+                                </h3>
+                                <p class="text-gray-400 font-sans text-xs sm:text-sm leading-relaxed">Tailored solutions
+                                    to meet your unique property requirements and goals.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative" data-reveal="right">
+                    <div
+                        class="absolute -top-4 sm:-top-6 -right-4 sm:-right-6 w-full h-full border-2 border-brand-gold/20 z-0 rounded-lg">
+                    </div>
+                    <div
+                        class="showcase-frame relative z-10 h-[400px] sm:h-[500px] md:h-[600px] rounded-lg overflow-hidden">
+                        <div class="showcase-overlay">
+                            <div class="flex items-center justify-between mb-auto">
+                                <span
+                                    class="font-sans text-xs tracking-widest uppercase text-white/90 bg-black/30 px-3 sm:px-4 py-1 sm:py-2 rounded-full backdrop-blur-sm">RH
+                                    Real Estate</span>
+                                <span
+                                    class="text-brand-gold text-xs font-sans tracking-widest uppercase bg-brand-gold/10 px-3 sm:px-4 py-1 sm:py-2 rounded-full backdrop-blur-sm">Since
+                                    2009</span>
+                            </div>
+
+                            <div
+                                class="glass-panel p-6 sm:p-8 max-w-3xl mx-auto rounded-lg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-2 h-2 rounded-full bg-brand-gold"></div>
+                                    <span class="font-sans text-xs tracking-widest uppercase text-brand-gold">Our
+                                        Mission</span>
+                                </div>
+                                <h3 class="font-serif text-xl sm:text-2xl text-white mb-3 sm:mb-4">Excellence in Every
+                                    Transaction</h3>
+                                <p
+                                    class="font-sans text-xs sm:text-sm text-gray-300 font-light leading-relaxed mb-4 sm:mb-6">
+                                    We are committed to providing exceptional real estate services, helping clients find
+                                    their perfect property and achieve their investment goals.
+                                </p>
+                                <div class="flex gap-4">
+                                    <div class="flex-1">
+                                        <div class="text-2xl sm:text-3xl font-serif text-brand-gold mb-1">500+</div>
+                                        <div class="text-xs text-gray-400 uppercase tracking-widest">Properties</div>
+                                    </div>
+                                    <div class="flex-1">
+                                        <div class="text-2xl sm:text-3xl font-serif text-brand-gold mb-1">250+</div>
+                                        <div class="text-xs text-gray-400 uppercase tracking-widest">Clients</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="text-[10px] sm:text-xs font-sans tracking-[0.25em] sm:tracking-[0.3em] uppercase text-white/30 text-center">
+                                Trusted • Reliable • Excellence
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact"
+            class="py-16 sm:py-24 md:py-32 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
+            <div
+                class="absolute -right-20 sm:-right-32 -top-20 sm:-top-32 w-64 sm:w-96 h-64 sm:h-96 bg-brand-gold/10 rounded-full blur-3xl">
+            </div>
+            <div
+                class="absolute -left-20 sm:-left-32 -bottom-20 sm:-bottom-32 w-64 sm:w-96 h-64 sm:h-96 bg-brand-gold/5 rounded-full blur-3xl">
+            </div>
+            <div
+                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-brand-gold/5 rounded-full blur-3xl">
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+                <div class="text-center mb-12 sm:mb-16">
+                    <span class="text-brand-gold font-sans text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 block">Get
+                        In Touch</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif text-white mb-4 sm:mb-6">
+                        Let's Find Your Dream Home</h2>
+                    <div class="w-16 sm:w-24 h-0.5 sm:h-1 bg-brand-gold mx-auto mb-6 sm:mb-8"></div>
+                    <p
+                        class="text-gray-300 font-sans font-light max-w-2xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-4">
+                        Ready to start your property search? Contact our expert team today and let us help you find the
+                        perfect home or investment opportunity.
+                    </p>
+                </div>
+
+                <div
+                    class="border border-white/10 p-8 sm:p-10 md:p-16 backdrop-blur-sm bg-white/5 rounded-xl sm:rounded-2xl">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12">
+                        <div class="text-center group">
+                            <div
+                                class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-brand-gold/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-gold/20 transition-colors">
+                                <i class="fa-solid fa-envelope text-brand-gold text-lg sm:text-xl"
+                                    aria-hidden="true"></i>
+                            </div>
+                            <h3 class="font-serif text-lg sm:text-xl text-white mb-2">Email</h3>
+                            <p class="text-gray-400 font-sans text-xs sm:text-sm">abc</p>
+                        </div>
+
+                        <div class="text-center group">
+                            <div
+                                class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-brand-gold/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-gold/20 transition-colors">
+                                <i class="fa-solid fa-phone text-brand-gold text-lg sm:text-xl" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="font-serif text-lg sm:text-xl text-white mb-2">Phone</h3>
+                            <p class="text-gray-400 font-sans text-xs sm:text-sm">******</p>
+                        </div>
+
+                        <div class="text-center group">
+                            <div
+                                class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-brand-gold/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-gold/20 transition-colors">
+                                <i class="fa-solid fa-location-dot text-brand-gold text-lg sm:text-xl"
+                                    aria-hidden="true"></i>
+                            </div>
+                            <h3 class="font-serif text-lg sm:text-xl text-white mb-2">Location</h3>
+                            <p class="text-gray-400 font-sans text-xs sm:text-sm" data-brand-location>abcd</p>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button
+                            class="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-brand-gold px-10 sm:px-12 py-4 sm:py-5 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-brand-gold/30 text-sm sm:text-base">
+                            <span
+                                class="absolute inset-0 bg-gradient-to-r from-brand-gold to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                            <span class="relative text-black font-sans uppercase tracking-widest font-semibold">
+                                Schedule a Consultation
+                            </span>
+                        </button>
+                        <div class="mt-4 text-gray-400 font-sans text-xs sm:text-sm">
+                            <p>Phone: ****** | Address: abcd | Email: abc</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-black py-8 sm:py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div
+                class="flex flex-col md:flex-row justify-between items-center text-xs sm:text-sm text-gray-400 font-sans">
+                <div class="mb-4 md:mb-0 text-center md:text-left">
+                    <p>
+                        &copy; <span data-year></span>
+                        <span data-brand-text class="text-brand-gold">RH Real Estate</span>. All Rights Reserved.
+                    </p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-[10px] sm:text-xs tracking-wider">Crafted with excellence for your real estate needs
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Local GSAP - Load first (synchronously) -->
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+
+    <!-- Custom JavaScript - Load after GSAP is ready -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,620 @@
+:root {
+  --bg: #121212;
+  --fg: #F5F5F0;
+  --gold: #C5A059;
+  --accent: #1a1a1a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
+}
+
+/* Enhanced Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--gold), #a0824a);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #d4b870, var(--gold));
+}
+
+/* Enhanced Text Stroke */
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(197, 160, 89, 0.6);
+  color: rgba(245, 245, 240, 0.03);
+  text-shadow: 0 0 30px rgba(197, 160, 89, 0.15);
+  opacity: 0.8;
+}
+
+/* Image Container Effects */
+.img-container {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.img-container img {
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-container:hover img {
+  transform: scale(1.12);
+}
+
+/* Ensure all images display properly */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  opacity: 1;
+}
+
+img[src] {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Fix for images not displaying */
+img[src*="images/"] {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Hero image specific */
+.hero-img {
+  display: block !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Custom Select/Dropdown Styling */
+.custom-select {
+  position: relative;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C5A059' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+  padding-right: 2.5rem !important;
+  transition: all 0.3s ease;
+}
+
+.custom-select:hover {
+  border-color: rgba(197, 160, 89, 0.5);
+}
+
+.custom-select:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1);
+}
+
+.custom-select option {
+  background-color: var(--bg);
+  color: var(--fg);
+  padding: 0.5rem;
+}
+
+/* Enhanced Loader */
+.loader {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #000 0%, #121212 100%);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader-content {
+  text-align: center;
+}
+
+.loader-text {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: var(--gold);
+  opacity: 0;
+  transform: translateY(20px);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.loader-line {
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 20px auto 0;
+  opacity: 0;
+}
+
+/* Initial Reveal */
+.reveal-on-load {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Brand Color Utilities */
+.text-brand-gold {
+  color: var(--gold) !important;
+}
+
+.bg-brand-gold {
+  background-color: var(--gold) !important;
+}
+
+.border-brand-gold {
+  border-color: var(--gold) !important;
+}
+
+.bg-brand-dark {
+  background-color: var(--bg) !important;
+}
+
+.bg-brand-gray {
+  background-color: #2A2A2A !important;
+}
+
+/* Enhanced Focus Visibility */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Enhanced Glass Panel */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced Showcase Frame */
+.showcase-frame {
+  position: relative;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  background:
+    radial-gradient(800px circle at 25% 25%, rgba(197, 160, 89, 0.2), transparent 65%),
+    radial-gradient(700px circle at 75% 35%, rgba(255, 255, 255, 0.08), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.2));
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.showcase-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0px,
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px,
+      transparent 16px
+    );
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.showcase-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(197, 160, 89, 0.05) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.showcase-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 10;
+}
+
+@media (min-width: 640px) {
+  .showcase-overlay {
+    padding: 28px;
+  }
+}
+
+/* Floating Shapes Animation */
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197, 160, 89, 0.1), transparent);
+  pointer-events: none;
+}
+
+.shape-1 {
+  width: 200px;
+  height: 200px;
+  top: 10%;
+  left: 5%;
+  animation: float 20s ease-in-out infinite;
+}
+
+.shape-2 {
+  width: 150px;
+  height: 150px;
+  bottom: 15%;
+  right: 10%;
+  animation: float 15s ease-in-out infinite reverse;
+}
+
+.shape-3 {
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  right: 20%;
+  animation: float 18s ease-in-out infinite;
+}
+
+@media (min-width: 640px) {
+  .shape-1 {
+    width: 300px;
+    height: 300px;
+  }
+  .shape-2 {
+    width: 200px;
+    height: 200px;
+  }
+  .shape-3 {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+    opacity: 0.5;
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+    opacity: 0.4;
+  }
+}
+
+/* Enhanced Property Cards */
+.property-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.property-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(197, 160, 89, 0.2);
+}
+
+/* Ensure property card image container is properly positioned */
+.property-card > div:first-child {
+  position: relative;
+  width: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* Ensure property card content area is properly positioned */
+.property-card > div:last-child {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Enhanced Agent Cards */
+.agent-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+}
+
+.agent-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(197, 160, 89, 0.15);
+}
+
+/* Navigation Link Underline Effect */
+.nav-link {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* CRITICAL: Images must ALWAYS be visible - override everything */
+img.force-visible,
+.property-card img,
+.agent-card img,
+section#portfolio img,
+.property-card img[src],
+.agent-card img[src],
+section#portfolio img[src] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Images inside cards are completely independent of parent opacity */
+.property-card img,
+.agent-card img {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  will-change: transform;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Enhanced Gallery Hover Effects */
+section#portfolio img,
+.property-card img {
+  filter: brightness(0.9);
+  transition: filter 0.5s ease, transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+section#portfolio .group:hover img,
+.property-card:hover img {
+  filter: brightness(1);
+}
+
+/* Smooth Transitions */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced Button Hover Effects */
+button,
+a[role="button"] {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button Text Color Fixes - Ensure text is readable on hover */
+button[class*="bg-brand-gold"] span.relative,
+button[class*="bg-brand-gold"] .relative {
+  color: #000 !important;
+  z-index: 10;
+}
+
+button[class*="hover:bg-brand-gold"]:hover span.relative,
+button[class*="hover:bg-brand-gold"]:hover .relative,
+button[class*="hover:bg-brand-gold"]:hover span[class*="z-10"] {
+  color: #000 !important;
+  transition: color 0.3s ease;
+}
+
+/* Ensure button text stays visible when background fills */
+button.group:hover span.relative,
+button.group:hover .relative,
+button.group:hover span[class*="z-10"] {
+  position: relative;
+  z-index: 10;
+}
+
+/* Fix for border buttons - white text by default, black on hover */
+button[class*="border-brand-gold"] span.relative,
+button[class*="border-brand-gold"] .relative,
+button[class*="border-brand-gold"] span[class*="z-10"] {
+  color: #fff !important;
+  z-index: 10;
+}
+
+button[class*="border-brand-gold"]:hover span.relative,
+button[class*="border-brand-gold"]:hover .relative,
+button[class*="border-brand-gold"]:hover span[class*="z-10"] {
+  color: #000 !important;
+  z-index: 10;
+}
+
+/* Custom Selection */
+::selection {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+::-moz-selection {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(197, 160, 89, 0.1) 0%,
+    rgba(197, 160, 89, 0.2) 50%,
+    rgba(197, 160, 89, 0.1) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Enhanced Responsive Typography */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .hero-title {
+    font-size: 1.875rem !important;
+    line-height: 1.2 !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Smooth Page Transitions */
+body {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+body.loading {
+  opacity: 0;
+}
+
+/* Form Elements */
+select,
+input,
+textarea {
+  font-family: "Montserrat", sans-serif;
+}
+
+select:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+/* Property Search Section Responsive */
+@media (max-width: 640px) {
+  .property-search {
+    padding: 1rem;
+  }
+  
+  .property-search select {
+    font-size: 0.875rem;
+    padding: 0.75rem;
+  }
+}
+
+/* Image Error Handling */
+img[src=""],
+img:not([src]) {
+  opacity: 0;
+}
+
+img {
+  background-color: rgba(42, 42, 42, 0.5);
+}
+
+/* Accessibility Improvements */
+@media (prefers-contrast: high) {
+  .text-gray-300,
+  .text-gray-400 {
+    color: #e5e5e5 !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .loader,
+  nav,
+  button,
+  .floating-shape {
+    display: none !important;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+}

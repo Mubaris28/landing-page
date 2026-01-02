@@ -164,6 +164,12 @@
 
     if (hasScrollTrigger) {
       window.gsap.registerPlugin(window.ScrollTrigger);
+      
+      // Optimize ScrollTrigger performance
+      window.ScrollTrigger.config({
+        autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
+        limitCallbacks: true,
+      });
     }
 
     // Enhanced Loader Animation
@@ -211,93 +217,114 @@
 
     if (!hasScrollTrigger) return;
 
-    // Enhanced Section Reveals
+    // Enhanced Section Reveals - Optimized for performance
     document.querySelectorAll('[data-reveal="left"]').forEach((el) => {
+      window.gsap.set(el, { willChange: "transform, opacity" });
       window.gsap.from(el, {
         scrollTrigger: {
           trigger: el,
           start: "top 85%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
         x: -80,
         opacity: 0,
         duration: 1.2,
         ease: "power3.out",
+        onComplete: () => window.gsap.set(el, { willChange: "auto" }),
       });
     });
 
     document.querySelectorAll('[data-reveal="right"]').forEach((el) => {
+      window.gsap.set(el, { willChange: "transform, opacity" });
       window.gsap.from(el, {
         scrollTrigger: {
           trigger: el,
           start: "top 85%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
         x: 80,
         opacity: 0,
         duration: 1.2,
         delay: 0.2,
         ease: "power3.out",
+        onComplete: () => window.gsap.set(el, { willChange: "auto" }),
       });
     });
 
-    // Enhanced Property Cards Animation - Only animate transform, NOT opacity
-    window.gsap.from(".property-card", {
-      scrollTrigger: {
-        trigger: "#properties",
-        start: "top 85%",
-        toggleActions: "play none none none",
-      },
-      y: 40,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: "power2.out",
+    // Enhanced Property Cards Animation - Optimized
+    document.querySelectorAll(".property-card").forEach((card) => {
+      window.gsap.set(card, { willChange: "transform" });
+      window.gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        onComplete: () => window.gsap.set(card, { willChange: "auto" }),
+      });
     });
 
-    // Enhanced Agent Cards Animation - Only animate transform, NOT opacity
-    window.gsap.from(".agent-card", {
-      scrollTrigger: {
-        trigger: "#agents",
-        start: "top 85%",
-        toggleActions: "play none none none",
-      },
-      y: 40,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: "power2.out",
+    // Enhanced Agent Cards Animation - Optimized
+    document.querySelectorAll(".agent-card").forEach((card) => {
+      window.gsap.set(card, { willChange: "transform" });
+      window.gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        onComplete: () => window.gsap.set(card, { willChange: "auto" }),
+      });
     });
 
-    // Enhanced Hero Parallax
+    // Enhanced Hero Parallax - Optimized for smooth scrolling
     const heroImg = document.querySelector(".hero-img");
     if (heroImg) {
+      window.gsap.set(heroImg, { willChange: "transform" });
       window.gsap.to(heroImg, {
         scrollTrigger: {
           trigger: "#home",
           start: "top top",
           end: "bottom top",
-          scrub: 1.5,
+          scrub: 2,
+          invalidateOnRefresh: true,
         },
-        y: 120,
-        scale: 1.15,
+        y: 100,
+        scale: 1.1,
         ease: "none",
+        force3D: true,
       });
     }
 
-    // Enhanced Floating Shapes
-    document.querySelectorAll(".floating-shape").forEach((shape, index) => {
-      window.gsap.to(shape, {
-        scrollTrigger: {
-          trigger: "#home",
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-        y: (index + 1) * 50,
-        x: (index % 2 === 0 ? 1 : -1) * 30,
-        rotation: (index + 1) * 10,
-        ease: "none",
+    // Enhanced Floating Shapes - Optimized, disabled on mobile for performance
+    const isMobile = window.innerWidth < 768;
+    if (!isMobile) {
+      document.querySelectorAll(".floating-shape").forEach((shape, index) => {
+        window.gsap.set(shape, { willChange: "transform" });
+        window.gsap.to(shape, {
+          scrollTrigger: {
+            trigger: "#home",
+            start: "top top",
+            end: "bottom top",
+            scrub: 2.5,
+            invalidateOnRefresh: true,
+          },
+          y: (index + 1) * 40,
+          x: (index % 2 === 0 ? 1 : -1) * 25,
+          rotation: (index + 1) * 8,
+          ease: "none",
+          force3D: true,
+        });
       });
-    });
+    }
 
     // Enhanced Count-up Stats
     document.querySelectorAll("[data-count]").forEach((el) => {
@@ -321,7 +348,7 @@
     });
   }
 
-  // Smooth Scroll for Anchor Links
+  // Smooth Scroll for Anchor Links - Optimized native smooth scroll
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener("click", function (e) {
